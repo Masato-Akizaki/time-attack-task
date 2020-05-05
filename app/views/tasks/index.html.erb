@@ -1,0 +1,10 @@
+<% provide(:title, 'All tasks')%>
+<h1>Tasks index</h1>
+
+<div class="container">
+  <% @tasks.each do |task| %>
+    <li><%= task.id %></li>
+    <li><%= task.name %></li>
+    <li><%= task.detail %></li>
+  <% end %>
+</div>
