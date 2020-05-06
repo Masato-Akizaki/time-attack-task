@@ -1,6 +1,16 @@
 <% provide(:title, 'task')%>
 <h1>Task show</h1>
+<%= link_to 'Index', tasks_path %>
 
-    <li><%= @task.id %></li>
-    <li><%= @task.name %></li>
-    <li><%= @task.detail %></li>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>detali</th>
+    </tr>
+    <tr>
+      <td><%= @task.id %></td>
+      <td><%= @task.name %></td>
+      <td><%= @task.detail %></td>
+      <td><%= link_to 'edit', edit_task_path(@task) %>
+    </tr>
