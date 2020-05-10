@@ -5,7 +5,8 @@ jobs:
       - image: circleci/ruby:2.5.1
       - image: circleci/postgres:12.2
         environment:
-          POSTGRES_USER: akizakimasato
+          POSTGRES_USER: time-attack-task
+          POSTGRES_PASSWORD: time-@ttack-t@sk
     
     working_directory: ~/time-attack-task
 
