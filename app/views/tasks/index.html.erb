@@ -7,13 +7,13 @@
     <tr>
       <th>id</th>
       <th>name</th>
-      <th>detali</th>
+      <th>memo</th>
     </tr>
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.id %></td>
       <td><%= task.name %></td>
-      <td><%= task.detail %></td>
+      <td><%= task.memo %></td>
       <td><%= link_to 'show', task %></td>
       <td><%= link_to 'edit', edit_task_path(task) %></td>
       <td><%= link_to 'destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
