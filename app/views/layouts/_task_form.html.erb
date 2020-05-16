@@ -8,6 +8,14 @@
     <%= f.label :memo %>
     <%= f.text_area :memo, class: 'form-control' %>
   </div>
+  <div>
+    <%= f.label :starts_at %>
+    <%= f.datetime_field :starts_at, class: 'form-control' %>
+  </div>
+  <div>
+    <%= f.label :ends_at %>
+    <%= f.datetime_field :ends_at, class: 'form-control' %>
+  </div>
   
   <%= f.submit button_text, class: "btn btn-primary" %>
 <% end %>
