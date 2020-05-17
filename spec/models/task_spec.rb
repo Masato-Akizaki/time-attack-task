@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  it "is valid with a name, detail" do
+  it "is valid with a name, memo" do
     task = Task.new(
       name: "test",
-      detail: "this task is test"
+      memo: "this task is test"
     )
     expect(task).to be_valid
   end
