@@ -8,7 +8,7 @@
       <%= link_to(task, class: "card-link") do %>
       <% end %>
       <p class="task-name"><%= task.name %></p>
-      <p class="task-memo"><%= task.memo %></p>
+      <p class="task-memo"><%= simple_format(task.memo) %></p>
       <p class="task-time"><%= task.starts_at %> - <%= task.ends_at %></p>
     </div>
   <% end %>

@@ -13,9 +13,18 @@
     <tr>
       <td><%= @task.id %></td>
       <td><%= @task.name %></td>
-      <td><%= @task.memo %></td>
+      <td><%= simple_format(@task.memo) %></td>
       <td><%= @task.starts_at %></td>
       <td><%= @task.ends_at %></td>
       <td><%= link_to 'edit', edit_task_path(@task) %></td>
       <td><%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
+  </table>
+
+  <div class="card">
+    <p class="task-name"><%= @task.name %></p>
+    <p class="task-memo"><%= simple_format(@task.memo) %></p>
+    <p class="task-time"><%= @task.starts_at %> - <%= @task.ends_at %></p>
+    <%= link_to 'edit', edit_task_path(@task) %>
+    <%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
