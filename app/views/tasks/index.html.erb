@@ -3,25 +3,13 @@
 <%= link_to 'New Task', new_task_path %>
 
 <div class="container">
-  <table>
-    <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>memo</th>
-      <th>starts_at</th>
-      <th>ends_at</th>
-    </tr>
   <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.id %></td>
-      <td><%= task.name %></td>
-      <td><%= task.memo %></td>
-      <td><%= task.starts_at %></td>
-      <td><%= task.ends_at %></td>
-      <td><%= link_to 'show', task %></td>
-      <td><%= link_to 'edit', edit_task_path(task) %></td>
-      <td><%= link_to 'destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-    </tr>
+    <div class="card">
+      <%= link_to(task, class: "card-link") do %>
+      <% end %>
+      <p class="task-name"><%= task.name %></p>
+      <%= simple_format(task.memo, class: "task-memo") %>
+      <p class="task-time"><%= task.starts_at %> - <%= task.ends_at %></p>
+    </div>
   <% end %>
 </div>
