@@ -23,7 +23,7 @@
 
   <div class="card">
     <p class="task-name"><%= @task.name %></p>
-    <p class="task-memo"><%= simple_format(@task.memo) %></p>
+    <%= simple_format(@task.memo, class: "task-memo") %>
     <p class="task-time"><%= @task.starts_at %> - <%= @task.ends_at %></p>
     <%= link_to 'edit', edit_task_path(@task) %>
     <%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
