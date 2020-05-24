@@ -4,10 +4,10 @@
 
 <div class="container">
   <% @tasks.each do |task| %>
-    <div class="card">
+    <div class="card <%= "done" if task.status == 1%>">
       <%= link_to(task, class: "card-link") do %>
       <% end %>
-      <p class="task-name <%= "done" if task.status == 1%>"><%= task.name %></p>
+      <p class="task-name"><%= task.name %></p>
       <%= simple_format(task.memo, class: "task-memo") %>
       <p class="task-time"><%= task.starts_at %> - <%= task.ends_at %></p>
     </div>
