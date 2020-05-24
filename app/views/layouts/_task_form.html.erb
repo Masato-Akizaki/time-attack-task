@@ -16,6 +16,8 @@
     <%= f.label :ends_at %>
     <%= f.datetime_field :ends_at, class: 'form-control' %>
   </div>
+    <%= f.label :status %>
+    <%= f.check_box :status, {class: 'form-control'}, 1, 0 %>
   
   <%= f.submit button_text, class: "btn btn-primary" %>
 <% end %>
