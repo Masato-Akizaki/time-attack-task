@@ -4,7 +4,7 @@
 
 <div class="container">
   <% @tasks.each do |task| %>
-    <div class="card <%= "done" if task.status == 1%>" id="task_status">
+    <div class="card <%= "done" if task.status == 1%>">
       <%= link_to(task, class: "card-link") do %>
       <% end %>
       <p class="task-name"><%= task.name %></p>
