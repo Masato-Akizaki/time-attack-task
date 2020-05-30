@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      task: タスク
+    attributes:
+        task:
+          id: ID
+          name: タスク
+          memo: メモ
+          status: ステータス
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
+    starts_at: 開始日時
+    ends_at: 終了日時
