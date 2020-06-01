@@ -7,7 +7,9 @@ ja:
           id: ID
           name: タスク
           memo: メモ
-          status: ステータス
+          status: 完了
+          date: 日付
+          time: 目標タイム
   attributes:
     created_at: 作成日
     updated_at: 更新日

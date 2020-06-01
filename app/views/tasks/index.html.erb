@@ -11,8 +11,11 @@
       <% if task.memo.present? %>
         <%= simple_format(task.memo, class: "task-memo") %>
       <% end %>
-      <% if task.starts_at.present? or task.ends_at.present? %>
-        <p class="task-time"><%= task.starts_at %> - <%= task.ends_at %></p>
+      <% if task.date.present? %>
+        <p class="task-date"><%= task.date %></p>
+      <% end %>
+      <% if task.time.present? %>
+        <p class="task-time"><%= task.time %>min</p>
       <% end %>
     </div>
   <% end %>
