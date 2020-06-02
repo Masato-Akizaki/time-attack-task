@@ -59,7 +59,7 @@ h1 {
   }
 }
 
-.done{
+.done {
   text-decoration: line-through;
   // background-color: lightgray;
   // opacity: 0.8;
@@ -68,4 +68,13 @@ h1 {
     color: gray;
     text-decoration: none;
   }
+}
+
+.new-task-icon img {
+  height: 70px;
+  width: 70px;
+  margin: 15px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
