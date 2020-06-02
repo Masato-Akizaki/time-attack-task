@@ -1,30 +1,11 @@
 <% provide(:title, 'task')%>
 <h1>Task show</h1>
 <%= link_to 'Index', tasks_path %>
-
-  <table>
-    <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>memo</th>
-      <th>starts_at</th>
-      <th>ends_at</th>
-    </tr>
-    <tr>
-      <td><%= @task.id %></td>
-      <td><%= @task.name %></td>
-      <td><%= simple_format(@task.memo) %></td>
-      <td><%= @task.starts_at %></td>
-      <td><%= @task.ends_at %></td>
-      <td><%= link_to 'edit', edit_task_path(@task) %></td>
-      <td><%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </table>
-
   <div class="card">
     <p class="task-name"><%= @task.name %></p>
+    <p class="task-date"><%= @task.date%></p>
+    <p class="task-time"><%= @task.time %></p>
     <%= simple_format(@task.memo, class: "task-memo") %>
-    <p class="task-time"><%= @task.starts_at %> - <%= @task.ends_at %></p>
     <%= link_to 'edit', edit_task_path(@task) %>
     <%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
