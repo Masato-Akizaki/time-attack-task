@@ -2,3 +2,4 @@
 <p>Find me in app/views/tasks/edit.html.erb</p>
 
 <%= render "layouts/task_form", button_text: '保存', task: @task %>
+<%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
