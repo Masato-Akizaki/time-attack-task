@@ -71,8 +71,8 @@ h1 {
 }
 
 .new-task-icon img {
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   margin: 15px;
   position: fixed;
   bottom: 0;
@@ -85,19 +85,18 @@ h1 {
   border-color: #E5E5E5;
   border-left: transparent;
   border-right: transparent;
+  padding: 0px 10px 0px 10px;
   margin-top: -1px;
-  font-size: 14px;
+  font-size: 16px;
   vertical-align: middle;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-
   
   input {
     border: transparent;
     margin-left: auto;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   textarea {
@@ -105,7 +104,7 @@ h1 {
     resize: none;
     width: 100%;
     height: 80%;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #task_name {
@@ -114,12 +113,12 @@ h1 {
 
   #task_date {
     text-align: right;
-    width: 150px;
+    width: 170px;
   }
 
   #task_time {
     text-align: right;
-    width: 50px;
+    width: 70px;
   }
 }
 
