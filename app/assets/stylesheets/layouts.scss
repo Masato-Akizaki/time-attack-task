@@ -1,13 +1,29 @@
+body {
+  padding: 70px 0px 70px 0px;
+}
+
 .navbar {
   background-color: #000066;
   text-decoration: none;
   height: 50px;
+  width: 100%;
+  margin-bottom: 25px;
   vertical-align: middle;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  
 
-  a {
-    color: white;
-    text-decoration: none;
-    vertical-align: middle;
-    text-align: middle;
+  #navbar_title {
+    a {
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+      vertical-align: middle;
+      text-align: center;
+    }
   }
 }

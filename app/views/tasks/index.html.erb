@@ -1,6 +1,4 @@
 <% provide(:title, 'All tasks')%>
-<h1>Tasks index</h1>
-
 <div class="container">
   <% @tasks.each do |task| %>
     <div class="card <%= "done" if task.status == 1%>">
