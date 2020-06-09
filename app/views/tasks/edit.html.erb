@@ -1,4 +1,3 @@
-<h1>Tasks#edit</h1>
-
+<%= provide(:nav_title, "タスクを編集") %>
 <%= render "task_form", button_text: '保存', task: @task %>
 <%= link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
