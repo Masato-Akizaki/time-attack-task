@@ -23,4 +23,18 @@ body {
       vertical-align: middle;
       text-align: center;
   }
+
+  #navbar_left {
+    width: 25px;
+
+    #back_icon img {
+      height: 25px;
+      padding-left: 10px;
+      vertical-align: middle;
+    }
+  }
+
+  #navbar_right {
+    width: 25px;
+  }
 }
