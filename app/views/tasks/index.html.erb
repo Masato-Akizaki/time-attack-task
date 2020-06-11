@@ -1,7 +1,5 @@
-<% provide(:title, 'All tasks')%>
-<h1>Tasks index</h1>
-<%= link_to 'New Task', new_task_path %>
-
+<%= provide(:left_icon, image_tag("menu_icon")) %> 
+<%= provide(:nav_title, "TimeAttackTask")%>
 <div class="container">
   <% @tasks.each do |task| %>
     <div class="card <%= "done" if task.status == 1%>">
@@ -20,3 +18,5 @@
     </div>
   <% end %>
 </div>
+
+<%= link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon" %>

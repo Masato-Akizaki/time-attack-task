@@ -1,22 +1,21 @@
 <%= form_for (task) do |f| %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, :placeholder => "タスクを入力してください", class: 'form-control' %>
   </div>
-  <div>
+  <div class="field">
     <%= f.label :date %>
     <%= f.date_field :date, class: 'form-control' %>
   </div>
-  <div>
+  <div class="field">
     <%= f.label :time %>
-    <%= f.number_field :time, class: 'form-control' %>
+    <%= f.number_field :time, :placeholder => "25", class: 'form-control' %>分
   </div>
-  <div class="area">
+  <div class="field">
     <%= f.label :memo %>
-    <%= f.text_area :memo, class: 'form-control' %>
+    <%= f.text_area :memo, :placeholder => "メモ", class: 'form-control' %>
   </div>
-  <div>
+  <div class="field">
     <%= f.label :status %>
     <%= f.check_box :status, {class: 'form-control'}, 1, 0 %>
   </div>

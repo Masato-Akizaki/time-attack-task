@@ -1,0 +1,40 @@
+body {
+  padding: 70px 0px 70px 0px;
+}
+
+.navbar {
+  background-color: #000066;
+  text-decoration: none;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 25px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  
+
+  #navbar_title {
+      font-size: 18px;
+      color: white;
+      vertical-align: middle;
+      text-align: center;
+  }
+
+  #navbar_left {
+    width: 25px;
+
+    img {
+      height: 20px;
+      padding-left: 15px;
+      vertical-align: middle;
+    }
+  }
+
+  #navbar_right {
+    width: 25px;
+  }
+}
