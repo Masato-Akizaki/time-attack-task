@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_223412) do
+ActiveRecord::Schema.define(version: 2020_06_13_125301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2020_06_11_223412) do
     t.integer "status"
     t.date "date"
     t.integer "time"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
+  add_foreign_key "tasks", "projects"
 end
