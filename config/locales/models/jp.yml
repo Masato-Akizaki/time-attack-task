@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       task: タスク
+      project: プロジェクト
     attributes:
         task:
           id: ID
@@ -10,6 +11,9 @@ ja:
           status: 完了
           date: 日付
           time: 目標タイム
+        project:
+          id: ID
+          name: プロジェクト
   attributes:
     created_at: 作成日
     updated_at: 更新日
