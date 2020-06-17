@@ -1,4 +1,0 @@
-<%= provide(:left_icon, (link_to image_tag("back_icon"), projects_url, id: "back_icon")) %> 
-<%= provide(:nav_title, "プロジェクトを編集") %>
-<%= render "project_form", button_text: '保存', project: @project %>
-<%= link_to 'destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
