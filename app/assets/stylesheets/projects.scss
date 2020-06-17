@@ -1,0 +1,28 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.field {
+  height: 75px;
+  border: 1px solid;
+  border-color: #E5E5E5;
+  border-left: transparent;
+  border-right: transparent;
+  padding: 0px 10px 0px 10px;
+  margin-top: -1px;
+  font-size: 16px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  input {
+    border: transparent;
+    margin-left: auto;
+    font-size: 16px;
+  }
+
+  #project_name {
+    width: 100%;
+  }
+}
