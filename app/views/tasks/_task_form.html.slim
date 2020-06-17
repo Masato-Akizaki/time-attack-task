@@ -1,0 +1,17 @@
+= form_for (task) do |f|
+  .field
+    = f.text_field :name, :placeholder => "タスクを入力してください", class: 'form-control'
+  .field
+    = f.label :date
+    = f.date_field :date, class: 'form-control'
+  .field
+    = f.label :time
+    = f.number_field :time, :placeholder => "25", class: 'form-control'
+    | 分 
+  .field
+    = f.label :memo
+    = f.text_area :memo, :placeholder => "メモ", class: 'form-control'
+  .field
+    = f.label :status
+    = f.check_box :status, {class: 'form-control'}, 1, 0
+  = f.submit button_text, class: "btn btn-primary"

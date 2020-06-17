@@ -1,0 +1,10 @@
+= provide(:left_icon, (link_to image_tag("back_icon"), tasks_url, id: "back_icon"))
+= provide(:nav_title, "プロジェクト")
+.container
+  - @projects.each do |project|
+    .card
+      p.project-name
+        = project.name
+    = link_to 'edit', edit_project_path(project)
+    = link_to 'destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to image_tag('new_task.png'), new_project_path, class: "new-task-icon"
