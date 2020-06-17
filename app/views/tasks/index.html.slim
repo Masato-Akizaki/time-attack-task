@@ -6,13 +6,4 @@
       div class="card #{'done' if task.status == 1 }"
         p.task-name
           = link_to(task.name, edit_task_path(task))
-          / - if task.memo.present?
-          /   = simple_format(task.memo, class: "task-memo")
-          / - if task.date.present?
-          /   p.task-date
-          /     = task.date
-          / - if task.time.present?
-          /   p.task-time
-          /     = task.time
-          /     | min
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
