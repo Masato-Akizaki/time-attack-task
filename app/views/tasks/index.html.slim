@@ -4,6 +4,8 @@
 .container
   - @tasks.each do |task|
       div class="card #{'done' if task.status == 1 }"
+        .checkbox
+          = check_box_tag :status
         p.task-name
           = link_to(task.name, edit_task_path(task))
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
