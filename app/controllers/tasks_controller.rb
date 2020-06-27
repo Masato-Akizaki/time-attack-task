@@ -45,6 +45,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def done
+    @task = Task.find(params[:id])
+    if @task.update_attributes(task_params)
+      respond_to do |format|
+        format.html { redierct_to tasks_url }
+        format.json { render json: @task}
+      end
+    else
+      render "index"
+    end
+  end
+
   private
 
     def task_params

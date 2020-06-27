@@ -4,8 +4,9 @@
 .container
   - @tasks.each do |task|
       div class="card #{'done' if task.status == 1 }"
-        .checkbox
-          = check_box_tag :status
+        = form_for (task) do |f|
+          .field
+            = f.check_box :status, {action: :done, id: 'done_check_box', remote: true}, 1, 0
         p.task-name
           = link_to(task.name, edit_task_path(task))
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
