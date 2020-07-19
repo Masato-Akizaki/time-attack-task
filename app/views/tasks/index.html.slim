@@ -3,7 +3,7 @@
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .container
   - @tasks.each do |task|
-      div class="card #{'done' if task.status == 1 }"
+      div class="card #{'done' if task.status }"
         = form_for (task) do |f|
           .field
             = f.check_box :status, {action: :done, id: 'done_check_box', remote: true}, 1, 0
