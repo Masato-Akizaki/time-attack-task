@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   
   def index
-    @tasks = Task.all.order("status asc, date asc, created_at desc")
+    @tasks = Task.all.order("completed asc, date asc, created_at desc")
   end
   
   def new
@@ -60,7 +60,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :date, :time, :memo, :status)
+      params.require(:task).permit(:name, :date, :time, :memo, :completed)
     end
 
 

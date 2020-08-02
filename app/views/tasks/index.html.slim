@@ -3,10 +3,15 @@
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .container
   - @tasks.each do |task|
-      div class="card #{'done' if task.status }"
-        = form_for (task) do |f|
-          .field
-            = f.check_box :status, {action: :done, id: 'done_check_box', remote: true}, 1, 0
+      div class="card #{'done' if task.completed }"
+        = check_box_tag('task[completed]', true, task.completed, {
+              onchange: '$(this).data("params", "task[completed]=" + this.checked)',
+              data: {
+                  url: tasks_url + "/#{task.id}/completed/",
+                  method: :post,
+                  remote: true
+              }
+          })
         p.task-name
           = link_to(task.name, edit_task_path(task))
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
