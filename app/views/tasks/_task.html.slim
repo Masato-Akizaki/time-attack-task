@@ -1,0 +1,11 @@
+div *{id: "task_#{task.id}", class: "card #{'done' if task.completed }" }
+  = check_box_tag 'task[completed]', true, task.completed, {  \
+      onchange: '$(this).data("params", "task[completed]=" + this.checked)',
+      data: {  \
+          url: tasks_url + "/#{task.id}/completed/",
+          method: :post,
+          remote: true  \
+      }  \
+    }
+  p.task-name
+  = link_to(task.name, edit_task_path(task))
