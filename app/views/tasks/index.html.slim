@@ -2,5 +2,6 @@
 = provide(:nav_title, "TimeAttackTask")
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .container
-  = render @tasks
+  .tasks
+    = render @tasks
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"

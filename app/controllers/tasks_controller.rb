@@ -46,6 +46,7 @@ class TasksController < ApplicationController
   end
 
   def completed
+    @tasks = Task.all.order("completed asc, date asc, created_at desc")
     @task = Task.find(params[:id])
     @task.completed = !@task.completed
     @task.save
