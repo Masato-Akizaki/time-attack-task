@@ -8,7 +8,7 @@ ja:
           id: ID
           name: タスク
           memo: メモ
-          status: 完了
+          completed: 完了
           date: 日付
           time: 目標タイム
         project:

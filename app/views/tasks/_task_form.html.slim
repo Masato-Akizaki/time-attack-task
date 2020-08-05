@@ -12,6 +12,6 @@
     = f.label :memo
     = f.text_area :memo, :placeholder => "メモ", class: 'form-control'
   .field
-    = f.label :status
-    = f.check_box :status, {class: 'form-control'}, 1, 0
+    = f.label :completed
+    = f.check_box :completed, {class: 'form-control'}, 1, 0
   = f.submit button_text, class: "btn btn-primary"
