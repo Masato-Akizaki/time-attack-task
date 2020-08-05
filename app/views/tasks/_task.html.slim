@@ -8,4 +8,4 @@ div *{id: "task_#{task.id}", class: "card #{'done' if task.completed }" }
       }  \
     }
   p.task-name
-  = link_to(task.name, edit_task_path(task))
+    = link_to(task.name, edit_task_path(task))
