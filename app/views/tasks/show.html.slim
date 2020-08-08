@@ -3,12 +3,12 @@ h1
   | Task show
 = link_to 'Index', tasks_path
 .card
-  p.task-name
+  px.task-name
     = @task.name
   p.task-date
     = @task.date
   p.task-time
     = @task.time
   = simple_format(@task.memo, class: "task-memo")
-  = link_to 'edit', edit_task_path(@task)
-  = link_to 'destroy', @task, method: :delete, data: { confirm: 'Are you sure?' }
+  = link_to '編集', edit_task_path(@task), class:'btn'
+  = link_to '削除', @task, class:'btn btn-delete', method: :delete, data: { confirm: 'Are you sure?' }
