@@ -1,19 +1,12 @@
 = provide(:left_icon, (link_to image_tag("back_icon"), tasks_url, id: "back_icon"))
 = provide(:nav_title, "タイマー")
-p.task-name
-  = @task.name
-p.task-date
-  = @task.date
-p.task-time#task-min
-  = @task.time
 
 #timer
-  h1 Timer
+  h1 = @task.name
   p
-    span#min 0
-    | 分
-    span#sec 0
-    | 秒
+    span#min = sprintf("%02d", @task.time)
+    | :
+    span#sec 00
   p
     input#start type="button" value="START"
     input#stop disabled="" type="button" value="STOP"

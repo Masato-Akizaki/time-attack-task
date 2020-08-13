@@ -1,5 +1,6 @@
 window.onload = function(){
-  var time = document.getElementById("task-min").innerHTML * 60;
+  var task_time = document.getElementById("min").innerHTML * 60;
+  var time = document.getElementById("min").innerHTML * 60;
   var counter;
   var min = document.getElementById("min");
   var sec = document.getElementById("sec");
@@ -8,24 +9,23 @@ window.onload = function(){
   var reset = document.getElementById("reset");
 
   start.onclick = function() {
-    console.log(time);
     toggle();
-    counter = setInterval( count, 1000 );
+    counter = setInterval(count, 1000);
   }
 
   stop.onclick = function() {
     toggle();
-    clearInterval( counter );
+    clearInterval(counter);
   }
 
   reset.onclick = function() {
-    time = 180;
-    sec.innerHTML = time % 60;
-    min.innerHTML = Math.floor( time / 60 );
+    time = task_time;
+    sec.innerHTML = ('00' + (time % 60)).slice(-2);
+    min.innerHTML = ('00' + (Math.floor(time / 60))).slice(-2);
   }
 
   function toggle() {
-    if( start.disabled ) {
+    if(start.disabled) {
       start.disabled = false;
       stop.disabled = true;
     } else {
@@ -35,16 +35,16 @@ window.onload = function(){
   }
 
   function count() {
-    if( time === 0 ) {
-      sec.innerHTML = 0;
-      min.innerHTML = 0;
+    if(time === 0) {
+      sec.innerHTML = ('00' + 0).slice(-2);
+      min.innerHTML = ('00' + 0).slice(-2);
       toggle();
-      alert("3分経過しました。");
-      clearInterval( counter );
+      alert("時間になりました。");
+      clearInterval(counter);
     } else {
       time -= 1;
-      sec.innerHTML = time % 60;
-      min.innerHTML = Math.floor( time / 60 );
+      sec.innerHTML = ('00' + (time % 60)).slice(-2);
+      min.innerHTML = ('00' + (Math.floor(time / 60))).slice(-2);
     }
   }
 
