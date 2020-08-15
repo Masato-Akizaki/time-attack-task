@@ -1,4 +1,4 @@
-window.onload = function(){
+document.addEventListener("turbolinks:load", function(){
   var task_time = document.getElementById("min").innerHTML * 60;
   var time = document.getElementById("min").innerHTML * 60;
   var counter;
@@ -45,7 +45,8 @@ window.onload = function(){
       time -= 1;
       sec.innerHTML = ('00' + (time % 60)).slice(-2);
       min.innerHTML = ('00' + (Math.floor(time / 60))).slice(-2);
+      console.log(time);
     }
   }
 
-}
+})

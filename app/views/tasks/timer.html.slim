@@ -3,11 +3,15 @@
 
 #timer
   h1 = @task.name
-  p
-    span#min = sprintf("%02d", @task.time)
-    | :
-    span#sec 00
-  p
-    input#start type="button" value="START"
-    input#stop disabled="" type="button" value="STOP"
-    input#reset type="button" value="RESET"
+  - if @task.time
+    p
+      span#min = sprintf("%02d", @task.time)
+      | :
+      span#sec 00
+    p
+      input#start type="button" value="START"
+      input#stop disabled="" type="button" value="STOP"
+      input#reset type="button" value="RESET"
+  - else
+    p.task-name
+      = link_to("目標タイムを設定する", edit_task_path(@task))
