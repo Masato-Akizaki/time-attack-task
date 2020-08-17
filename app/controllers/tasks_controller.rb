@@ -52,6 +52,10 @@ class TasksController < ApplicationController
     @task.save
   end
 
+  def timer
+    @task = Task.find(params[:id])
+  end
+
   private
 
     def task_params

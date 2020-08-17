@@ -1,0 +1,17 @@
+= provide(:left_icon, (link_to image_tag("back_icon"), tasks_url, id: "back_icon"))
+= provide(:nav_title, "タイマー")
+
+.timer
+  p.task-name = @task.name
+  p.task-timer
+    - if @task.time
+      span#min = sprintf("%02d", @task.time)
+      | :
+      span#sec 00
+      p
+        input#start type="button" value="START"
+        input#stop disabled="" type="button" value="STOP"
+        input#reset type="button" value="RESET"
+    - else
+      p.edit_link
+        = link_to("目標タイムを設定する", edit_task_path(@task))

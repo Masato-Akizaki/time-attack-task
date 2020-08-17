@@ -4,7 +4,6 @@
 
 h1 {
   color: #000066;
-
 }
 
 .card {
@@ -50,6 +49,15 @@ h1 {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+.timer-icon {
+  margin: auto 22px auto 0px;
+
+  img {
+    height: 25px;
+    width: 25px;
+  }
 }
 
 .field {
@@ -115,4 +123,36 @@ h1 {
 
 #projects_url {
   text-decoration: none;
+}
+
+.timer {
+  height: 500px;
+  color: white;
+  background-color: #000066;
+  text-align: center;
+
+  .task-name {
+    font-size: 24px;
+    padding-top: 20px;
+  }
+
+  .task-timer {
+    font-size: 64px;
+    padding: 75px 0;
+  }
+
+  .edit_link {
+    a{
+      color: white;
+      font-size: 24px;
+    }
+  }
+
+  input[type="button"]{
+    height: 80px;
+    width: 80px;
+    margin: 0 10px;
+    border: solid 1px white;
+    border-radius: 80px;
+  }
 }
