@@ -1,16 +1,16 @@
 document.addEventListener("turbolinks:load", function(){
 
   var url = document.location.href;
+  var min = document.getElementById("min");
+  var sec = document.getElementById("sec");
+  var start = document.getElementById("start");
+  var stop = document.getElementById("stop");
+  var reset = document.getElementById("reset");
 
-  if (url.includes('timer')) {
+  if (url.includes('timer') && min) {
     var task_time = document.getElementById("min").innerHTML * 60;
     var time = document.getElementById("min").innerHTML * 60;
     var counter;
-    var min = document.getElementById("min");
-    var sec = document.getElementById("sec");
-    var start = document.getElementById("start");
-    var stop = document.getElementById("stop");
-    var reset = document.getElementById("reset");
 
     start.onclick = function() {
       toggle();
@@ -53,7 +53,6 @@ document.addEventListener("turbolinks:load", function(){
         time -= 1;
         sec.innerHTML = ('00' + (time % 60)).slice(-2);
         min.innerHTML = ('00' + (Math.floor(time / 60))).slice(-2);
-        console.log(time);
       }
     }
   }
