@@ -14,4 +14,7 @@
   .field
     = f.label :completed
     = f.check_box :completed, {class: 'form-control'}, 1, 0
+  .field
+    = f.label :project
+    = f.select :project_id, Project.all.map { |p| [p.name, p.id] }, include_blank: true, class: 'form-control'
   = f.submit button_text, class: 'btn'

@@ -11,6 +11,7 @@ ja:
           completed: 完了
           date: 日付
           time: 目標タイム
+          project: プロジェクト
         project:
           id: ID
           name: プロジェクト
