@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   
   def index
     @tasks = Task.all.order("completed asc, date asc, created_at desc")
+    @projects = Project.all
   end
   
   def new
