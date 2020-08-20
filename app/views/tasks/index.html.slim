@@ -7,6 +7,6 @@
     .no-project
       .project-name 
         p No Project
-        .tasks
-          = render @tasks.where(project_id: nil)
+      .tasks
+        = render @tasks.where(project_id: nil)
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
