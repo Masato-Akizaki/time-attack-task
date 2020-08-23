@@ -1,0 +1,6 @@
+- if @tasks.where(project_id: project.id).present?
+  .project
+    .project-name
+      p = project.name
+    .tasks id="#{project.id}"
+      = render @tasks.where(project_id: project.id)

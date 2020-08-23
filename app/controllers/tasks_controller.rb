@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   
   def index
     @tasks = Task.all.order("completed asc, date asc, created_at desc")
+    @projects = Project.all
   end
   
   def new
@@ -59,7 +60,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :date, :time, :memo, :completed)
+      params.require(:task).permit(:name, :date, :time, :memo, :completed, :project_id)
     end
 
 
