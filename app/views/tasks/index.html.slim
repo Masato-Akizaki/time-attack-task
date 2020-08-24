@@ -3,12 +3,19 @@
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .container
   ul.menu
-    - @projects.each do | p |
-      li.menu-item =p.name
-    li.menu-item No Project
-    li.menu-item 今日
-    li.menu-item 明日
-    li.menu-item 日付なし
+    li.menu-item
+      | プロジェクト
+      ul.menu-item
+        - @projects.each do | p |
+          li.menu-item =p.name
+        li.menu-item No Project
+    li.menu-item
+      | 日付
+      ul.menu-item
+        li.menu-item 今日
+        li.menu-item 明日
+        li.menu-item 期限切れ
+        li.menu-item 日付なし
   .contents
     .projetcts
       = render @projects
