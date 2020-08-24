@@ -1,1 +1,1 @@
-$('.tasks#<%= @task.project_id ? @task.project_id : 'no_project' %>').html('<%= j(render @tasks.where(project_id: @task.project_id)) %>'); 
+$('.tasks#<%= @task.project_id ? "project_#{@task.project_id}" : "no_project" %>').html('<%= j(render @tasks.where(project_id: @task.project_id)) %>'); 
