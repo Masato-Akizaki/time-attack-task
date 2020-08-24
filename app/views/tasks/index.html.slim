@@ -2,11 +2,19 @@
 = provide(:nav_title, "TimeAttackTask")
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .container
-  .projetcts
-    = render @projects
-    .no-project
-      .project-name 
-        p No Project
-      .tasks#no_project
-        = render @tasks.where(project_id: nil)
+  ul.menu
+    - @projects.each do | p |
+      li.menu-item =p.name
+    li.menu-item No Project
+    li.menu-item 今日
+    li.menu-item 明日
+    li.menu-item 日付なし
+  .contents
+    .projetcts
+      = render @projects
+      .no-project
+        .project-name 
+          p No Project
+        .tasks#no_project
+          = render @tasks.where(project_id: nil)
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
