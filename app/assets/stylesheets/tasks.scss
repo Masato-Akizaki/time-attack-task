@@ -262,8 +262,8 @@ h1 {
 
 .cp_offcm04 #cp_toggle04 {
 	position: absolute;
-	display: none;
-	opacity: 0;
+  display: none;  
+  opacity: 0;
 }
 .cp_offcm04 #cp_toggle04:checked ~ .cp_menu {
 	-webkit-transform: translateX(100vw);
@@ -271,14 +271,15 @@ h1 {
 }
 /* menu toggle */
 .cp_offcm04 #cp_toggle04 ~ label {
-	display: block;
+  display: block;
+  padding: 10px 0 0 5px;
 	cursor: pointer;
 	-webkit-transition: 0.5s transform;
 	        transition: 0.5s transform;
 	-webkit-transition-timing-function: cubic-bezier(.61,-0.38,.37,1.27);
 	        transition-timing-function: cubic-bezier(.61,-0.38,.37,1.27);
 	text-align: center;
-	color: #333333;
+  color: #333333;
 }
 .cp_offcm04 #cp_toggle04:checked ~ label {
 	-webkit-transform: translateX(250px);
@@ -286,10 +287,16 @@ h1 {
 }
 .cp_offcm04 #cp_toggle04 ~ label::before {
 	font-family: 'FontAwesome';
-	content:image-url("menu_icon.png");
-	font-size: 2em
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  background-image: image-url("menu_icon.png");
+  background-size: contain;
+  font-size: 28px;
 }
 .cp_offcm04 #cp_toggle04:checked ~ label::before {
   content: '×';
   color: white;
+  background-image: none;
 }
