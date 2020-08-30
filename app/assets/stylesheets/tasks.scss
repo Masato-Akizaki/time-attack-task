@@ -222,7 +222,7 @@ h1 {
 
 
 .cp_offcm04 {
-	position: absolute;
+	position: fixed;
 	top: 5px;
 	left: 10px;
 	display: inline-block;
@@ -239,8 +239,7 @@ h1 {
 	        transition: 0.53s transform;
 	-webkit-transition-timing-function: cubic-bezier(.38,.52,.23,.99);
 	        transition-timing-function: cubic-bezier(.38,.52,.23,.99);
-	background-color: rgba(0,151,167 ,1);
-  opacity: 0.8;
+	background-color: #000066;
   
   ul {
     margin: 0;
@@ -299,4 +298,7 @@ h1 {
   content: '×';
   color: white;
   background-image: none;
+  position: absolute;
+  top: 0px;
+	left: 0px;
 }
