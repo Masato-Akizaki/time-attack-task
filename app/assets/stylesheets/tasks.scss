@@ -173,62 +173,14 @@ h1 {
   border-bottom: solid 1px #000066;
 }
 
-// ul, li {
-//   margin: 0;
-//   padding: 0;
-//   list-style: none;
-// }
-
-// .menu {
-//   background: #000066;
-//   color: white;
-//   position: absolute;
-//   height: 50px;
-//   width: 45px;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-
-//   .icon {
-//     height: 50px;
-//     margin-bottom: 25px;
-//     padding: 12px 0 0 15px;
-
-//     img {
-//       height: 20px;
-//       width: 25px;
-//       vertical-align: middle;
-//     }
-//   }  
-// }
-
-// .menu:hover {
-//   width: 200px;
-//   height: 100%;
-// }
-
-// .menu-item {
-//   line-height: 35px;
-//   cursor: pointer;
-//   transition: background-color 0.3s ease-in-out;
-//   padding-left: 20px;
-// }
-
-// .menu-item:hover {
-//   background: gray;
-// }
-
-
-.cp_offcm04 {
+.side_menu {
 	position: fixed;
 	top: 5px;
 	left: 10px;
 	display: inline-block;
 }
 /* menu */
-.cp_menu {
+.menu {
 	position: fixed;
 	top: 0;
 	left: -100vw;
@@ -259,17 +211,17 @@ h1 {
   }
 }
 
-.cp_offcm04 #cp_toggle04 {
+.side_menu #toggle {
 	position: absolute;
   display: none;  
   opacity: 0;
 }
-.cp_offcm04 #cp_toggle04:checked ~ .cp_menu {
+.side_menu #toggle:checked ~ .menu {
 	-webkit-transform: translateX(100vw);
 	        transform: translateX(100vw);
 }
 /* menu toggle */
-.cp_offcm04 #cp_toggle04 ~ label {
+.side_menu #toggle ~ label {
   display: block;
   padding: 10px 0 0 5px;
 	cursor: pointer;
@@ -280,11 +232,11 @@ h1 {
 	text-align: center;
   color: #333333;
 }
-.cp_offcm04 #cp_toggle04:checked ~ label {
+.side_menu #toggle:checked ~ label {
 	-webkit-transform: translateX(250px);
 	        transform: translateX(250px);
 }
-.cp_offcm04 #cp_toggle04 ~ label::before {
+.side_menu #toggle ~ label::before {
 	font-family: 'FontAwesome';
   content: "";
   display: inline-block;
@@ -294,7 +246,7 @@ h1 {
   background-size: contain;
   font-size: 28px;
 }
-.cp_offcm04 #cp_toggle04:checked ~ label::before {
+.side_menu #toggle:checked ~ label::before {
   content: '×';
   color: white;
   background-image: none;
