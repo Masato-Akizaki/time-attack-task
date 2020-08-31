@@ -2,5 +2,5 @@
   .project
     .project-name
       p = project.name
-    .tasks id="#{project.id}"
+    .tasks id="project_#{project.id}"
       = render @tasks.where(project_id: project.id)

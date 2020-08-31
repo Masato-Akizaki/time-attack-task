@@ -16,6 +16,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+    @projects = Project.all
+    @tasks = Task.where(project_id: @project.id).order("completed asc, date asc, created_at desc")
+  end
+
   def edit
     @project = Project.find(params[:id])
   end

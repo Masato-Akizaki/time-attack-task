@@ -1,1 +1,8 @@
-
+= provide(:nav_title, "TimeAttackTask")
+= provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
+.side_menu
+	= render 'layouts/side_menu'
+.container
+  .contents
+    .projetcts
+      = render @project
