@@ -1,0 +1,8 @@
+input type="checkbox" id="toggle"
+	label for="toggle"
+	.menu
+      ul
+        - @projects.each do | p |
+          li.menu-item =link_to p.name, project_url(p)
+        li.menu-item
+          = link_to "all tasks", tasks_url

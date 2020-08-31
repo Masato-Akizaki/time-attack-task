@@ -2,12 +2,7 @@
 = provide(:nav_title, "TimeAttackTask")
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .side_menu
-	input type="checkbox" id="toggle"
-	label for="toggle"
-	.menu
-      ul
-        - @projects.each do | p |
-          li.menu-item =link_to p.name, project_url(p)
+	= render 'layouts/side_menu'
 .container
   .contents
     .projetcts
