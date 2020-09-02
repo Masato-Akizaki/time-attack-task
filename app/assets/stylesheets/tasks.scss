@@ -162,7 +162,7 @@ h1 {
 }
 
 .project {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .project-name {
@@ -252,4 +252,35 @@ h1 {
   position: absolute;
   top: 0px;
 	left: 0px;
+}
+
+.tasks > label {
+  display: block;
+  padding : 15px;
+  margin-bottom: 20px;
+  line-height: 1;
+  color : gray;
+  border : 1px solid gray;
+  cursor : pointer;
+}
+
+.tasks > input {
+  display: none;
+}
+
+.completed_tasks .card {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  // -webkit-transition: all 0.5s;
+  // -moz-transition: all 0.5s;
+  // -ms-transition: all 0.5s;
+  // -o-transition: all 0.5s;
+  // transition: all 0.5s;
+}
+
+[id*=completed_tasks]:checked ~ .completed_tasks .card{
+  height: 100%;
+  margin-bottom: 20px;
+  opacity: 1;
 }

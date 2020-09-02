@@ -3,4 +3,9 @@
     .project-name
       p = project.name
     .tasks id="project_#{project.id}"
-      = render @tasks.where(project_id: project.id)
+      .incomplete_tasks
+        = render @tasks.where(project_id: project.id, completed: false)
+      input type="checkbox" id="completed_tasks_#{project.id}"
+	    label for="completed_tasks_#{project.id}" 完了したタスクを表示
+      .completed_tasks
+        = render @tasks.where(project_id: project.id, completed: true)
