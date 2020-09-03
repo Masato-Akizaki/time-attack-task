@@ -1,0 +1,14 @@
+- if project
+  .incomplete_tasks
+    = render tasks.where(project_id: project.id, completed: false)
+  input type="checkbox" id="completed_tasks_#{project.id}"
+  label for="completed_tasks_#{project.id}" 完了したタスクを表示
+  .completed_tasks
+    = render tasks.where(project_id: project.id, completed: true)
+- else
+  .incomplete_tasks
+    = render tasks.where(project_id: nil, completed: false)
+  input type="checkbox" id="completed_tasks_0"
+  label for="completed_tasks_0" 完了したタスクを表示
+  .completed_tasks
+    = render tasks.where(project_id: nil, completed: true)
