@@ -11,5 +11,11 @@
         .project-name 
           p No Project
         .tasks#no_project
-          = render @tasks.where(project_id: nil)
+          = render "project_tasks", project: nil, tasks: @tasks
+          / .incomplete_tasks
+          /   = render @tasks.where(project_id: nil, completed: false)
+          / input type="checkbox" id="completed_tasks_0"
+          / label for="completed_tasks_0" 完了したタスクを表示
+          / .completed_tasks
+          /   = render @tasks.where(project_id: nil, completed: true)
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
