@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
-  padding: 0px 22px 0px 22px;
+  padding: 70px 22px 70px 22px;
 }
 
 h1 {
@@ -130,14 +130,14 @@ h1 {
 }
 
 .timer {
-  height: 500px;
+  height: 100vh;
   color: white;
   background-color: #000066;
   text-align: center;
 
   .task-name {
     font-size: 24px;
-    padding-top: 20px;
+    padding-top: 100px;
   }
 
   .task-timer {
