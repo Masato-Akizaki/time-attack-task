@@ -1,12 +1,14 @@
 div *{id: "task_#{task.id}", class: "card #{'done' if task.completed }" }
-  = check_box_tag 'task[completed]', true, task.completed, {  \
-      onchange: '$(this).data("params", "task[completed]=" + this.checked)',
-      data: {  \
-          url: tasks_url + "/#{task.id}/completed/",
-          method: :post,
-          remote: true  \
-      }  \
-    }
+  label.checkbox
+    = check_box_tag "task#{task.id}", true, task.completed, {  \
+        onchange: '$(this).data("params", "task#{task.id}=" + this.checked)',
+        data: {  \
+            url: tasks_url + "/#{task.id}/completed/",
+            method: :post,
+            remote: true  \
+        }  \
+      }
+  / = label_tag "task#{task.id}" 
   p.task-name
     = link_to(task.name, edit_task_path(task))
   = link_to image_tag('timer_icon.png'), timer_task_path(task), class: "timer-icon"
