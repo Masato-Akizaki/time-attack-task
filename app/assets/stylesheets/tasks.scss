@@ -220,7 +220,8 @@ input[type=checkbox]:checked + .checkbox::after {
 	position: fixed;
 	top: 5px;
 	left: 10px;
-	display: inline-block;
+  display: inline-block;
+  z-index: 2;
 }
 /* menu */
 .menu {
