@@ -1,5 +1,4 @@
 div *{id: "task_#{task.id}", class: "card #{'done' if task.completed }" }
-  / label.checkbox
   = check_box_tag "task#{task.id}", true, task.completed, {  \
       onchange: '$(this).data("params", "task#{task.id}=" + this.checked)',
       data: {  \
