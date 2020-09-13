@@ -58,7 +58,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-  def today
+  def date
     @today = Date.today
     @tasks = Task.where(date: @today).order("completed asc, date asc, created_at desc")
     @projects = Project.all
