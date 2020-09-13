@@ -4,6 +4,13 @@
 	= render 'layouts/side_menu'
 .container
   .contents
+    .date_container
+      .display_date.move_date_icon
+        = '◀︎'
+      .display_date
+        = @today.strftime("%-m月%-d日(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
+      .display_date.move_date_icon
+        = '▶︎'
     .projetcts
       = render @projects
       .no-project
