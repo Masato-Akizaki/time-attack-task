@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :tasks do
+    collection do
+      get 'today'
+    end
     member do
       post 'completed'
       get 'timer'
