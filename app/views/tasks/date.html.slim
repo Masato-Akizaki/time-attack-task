@@ -6,11 +6,11 @@
   .contents
     .date_container
       .display_date.move_date_icon
-        = '◀︎'
+        = link_to "◀︎", date_tasks_url(date: @date.yesterday), id: "date_tasks_url"
       .display_date
-        = @today.strftime("%-m月%-d日(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
+        = @date.strftime("%-m月%-d日(#{%w(日 月 火 水 木 金 土)[@date.wday]})")
       .display_date.move_date_icon
-        = '▶︎'
+        = link_to "▶︎", date_tasks_url(date: @date.tomorrow), id: "date_tasks_url"
     .projetcts
       = render @projects
       .no-project
