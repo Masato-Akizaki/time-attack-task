@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :tasks do
     collection do
-      get 'date'
+      get 'all'
     end
     member do
       post 'completed'

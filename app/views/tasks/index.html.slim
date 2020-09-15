@@ -1,10 +1,16 @@
-/ = provide(:left_icon, image_tag("menu_icon"))
 = provide(:nav_title, "TimeAttackTask")
 = provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
 .side_menu
 	= render 'layouts/side_menu'
 .container
   .contents
+    .date_container
+      .display_date.move_date_icon
+        = link_to "◀︎", tasks_url(date: @date.yesterday), id: "date_tasks_url"
+      .display_date
+        = @date.strftime("%-m月%-d日(#{%w(日 月 火 水 木 金 土)[@date.wday]})")
+      .display_date.move_date_icon
+        = link_to "▶︎", tasks_url(date: @date.tomorrow), id: "date_tasks_url"
     .projetcts
       = render @projects
       .no-project
