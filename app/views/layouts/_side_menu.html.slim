@@ -2,7 +2,9 @@ input type="checkbox" id="toggle"
 	label for="toggle"
 	.menu
       ul
+        li.menu-item
+          = link_to "today's tasks", tasks_url
         - @projects.each do | p |
           li.menu-item =link_to p.name, project_url(p)
         li.menu-item
-          = link_to "all tasks", tasks_url
+          = link_to "all tasks", all_tasks_url

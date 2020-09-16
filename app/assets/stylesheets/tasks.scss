@@ -375,3 +375,25 @@ form {
   margin-bottom: 20px;
   opacity: 1;
 }
+
+.date_container {
+  font-size: 0;
+  text-align: center;
+}
+
+.display_date {
+  display: inline-block;
+  font-size: 18px;
+  color: #000066;
+  font-weight: bold; 
+  margin-bottom: 20px;
+}
+
+.move_date_icon {
+  margin: 0 30px;
+
+  a {
+    color: #000066;
+    text-decoration: none;
+  }
+}

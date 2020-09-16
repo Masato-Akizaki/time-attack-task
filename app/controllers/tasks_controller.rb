@@ -1,7 +1,12 @@
 class TasksController < ApplicationController
   
   def index
-    @tasks = Task.all.order("completed asc, date asc, created_at desc")
+    if params[:date]
+      @date = Date.parse(params[:date])
+    else 
+      @date = Date.today
+    end
+    @tasks = Task.where(date: @date).order("completed asc, date asc, created_at desc")
     @projects = Project.all
   end
   
@@ -56,6 +61,11 @@ class TasksController < ApplicationController
 
   def timer
     @task = Task.find(params[:id])
+  end
+
+  def all
+    @tasks = Task.all.order("completed asc, date asc, created_at desc")
+    @projects = Project.all
   end
 
   private
