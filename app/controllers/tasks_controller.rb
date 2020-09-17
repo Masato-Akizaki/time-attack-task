@@ -54,6 +54,11 @@ class TasksController < ApplicationController
   def completed
     @tasks = Task.all.order("completed asc, date asc, created_at desc")
     @task = Task.find(params[:id])
+    if @task.date
+      @date = Date.parse("#{@task.date}")
+    else 
+      @date = Date.today
+    end
     @project = @task.project_id ? Project.find(@task.project_id) : nil
     @task.completed = !@task.completed
     @task.save

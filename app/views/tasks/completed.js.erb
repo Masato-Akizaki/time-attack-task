@@ -1,1 +1,6 @@
-$('.tasks#<%= @task.project_id ? "project_#{@task.project_id}" : "no_project" %>').html('<%= j(render "project_tasks", project: @project, tasks: @tasks) %>'); 
+var path = location.pathname ;
+if (path == '/tasks') {
+  $('.tasks#<%= @task.project_id ? "project_#{@task.project_id}" : "no_project" %>').html('<%= j(render "project_tasks", project: @project, tasks: @tasks.where(date: @date)) %>'); 
+} else {
+  $('.tasks#<%= @task.project_id ? "project_#{@task.project_id}" : "no_project" %>').html('<%= j(render "project_tasks", project: @project, tasks: @tasks) %>'); 
+}
