@@ -1,2 +1,3 @@
-h1 Sign up
+= provide(:left_icon, (link_to image_tag("back_icon"), :back, id: "back_icon"))
+= provide(:nav_title, "サインイン")
 = render "form", button_text: '登録', user: @user, class: 'btn'
