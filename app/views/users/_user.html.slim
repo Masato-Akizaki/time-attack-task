@@ -1,0 +1,7 @@
+.user
+  .user-name
+    p = user.name
+  .user-email
+    p = user.email
+  = link_to 'edit', edit_user_path(user)
+  = link_to 'destroy', user, method: :delete, data: { confirm: 'Are you sure?' }

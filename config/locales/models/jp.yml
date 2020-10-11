@@ -3,6 +3,7 @@ ja:
     models:
       task: タスク
       project: プロジェクト
+      user: ユーザー
     attributes:
         task:
           id: ID
@@ -15,6 +16,11 @@ ja:
         project:
           id: ID
           name: プロジェクト
+        user:
+          name: ユーザー名
+          email: メールアドレス
+          password: パスワード
+          password_confirmation: パスワードの確認
   attributes:
     created_at: 作成日
     updated_at: 更新日
