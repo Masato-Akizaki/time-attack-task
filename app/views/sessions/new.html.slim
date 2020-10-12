@@ -1,0 +1,12 @@
+= provide(:left_icon, (link_to image_tag("back_icon"), :back, id: "back_icon"))
+= provide(:nav_title, "ログイン")
+= form_for(:session, url: login_path) do |f|
+  .field
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  .field
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  = f.submit "ログイン", class: "btn btn-primary"
+  p
+  | はじめてご利用の方 #{link_to "新規登録する", signup_path}
