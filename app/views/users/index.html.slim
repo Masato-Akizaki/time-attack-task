@@ -1,4 +1,6 @@
 = provide(:nav_title, "ユーザー一覧")
 .container
   .contents
+    = will_paginate
     = render @users
+    = will_paginate
