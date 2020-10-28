@@ -15,13 +15,15 @@ class User < ApplicationRecord
               length: { minimum: 6 },
               allow_nil: true
 
-  def digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+  class << self
+    def digest(string)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
 
-  def new_token
-    SecureRandom.urlsafe_base64
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   def remember
@@ -38,7 +40,7 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  provate
+  private
 
     def downcase_email
       self.email = email.downcase
