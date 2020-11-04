@@ -1,2 +1,13 @@
-h1 PasswordResets#edit
-p Find me in app/views/password_resets/edit.html.slim
+= provide(:left_icon, (link_to image_tag("back_icon"), :back, id: "back_icon"))
+= provide(:nav_title, "パスワードの再設定")
+= form_for(@user, url: password_resets_path(params[:id])) do |f|
+  .field
+    = hedden_field_tag :email, @user.email
+  .field
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control'
+
+  = f.submit "パスワードを更新", class: "btn btn-primary"
