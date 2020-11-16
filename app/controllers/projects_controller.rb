@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = current_user.projects.all
   end
   
   def new
@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
     if @project.save
       redirect_to projects_url
     else
@@ -18,8 +18,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @projects = Project.all
-    @tasks = Task.where(project_id: @project.id).order("completed asc, date asc, created_at desc")
+    @projects = current_user.projects.all
+    @tasks = current_user.tasks.where(project_id: @project.id).order("completed asc, date asc, created_at desc")
   end
 
   def edit

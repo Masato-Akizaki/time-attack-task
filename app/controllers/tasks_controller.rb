@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :logged_in_user
   
   def index
     if params[:date]
@@ -6,8 +7,8 @@ class TasksController < ApplicationController
     else 
       @date = Date.today
     end
-    @tasks = Task.where(date: @date).order("completed asc, date asc, created_at desc")
-    @projects = Project.all
+    @tasks = current_user.tasks.where(date: @date).order("completed asc, date asc, created_at desc")
+    @projects = current_user.projects.all
   end
   
   def new
@@ -15,7 +16,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to tasks_url
     else
