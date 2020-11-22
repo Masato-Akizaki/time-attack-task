@@ -1,6 +1,9 @@
 = provide(:left_icon, (link_to image_tag("back_icon"), :back, id: "back_icon"))
 = provide(:nav_title, "ログイン")
 = form_for(:session, url: login_path) do |f|
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
   .field
     = f.label :email
     = f.email_field :email, class: 'form-control'
