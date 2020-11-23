@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         message = "アカウントが有効ではありません。"
         message += "メールを確認して登録を完了させてください。"
         flash[:warning] = message
-        redirect_to signup_url
+        redirect_to login_url
       end
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to signup_url
+    redirect_to login_url
   end
 end
