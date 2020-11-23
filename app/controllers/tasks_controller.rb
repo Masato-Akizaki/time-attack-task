@@ -25,15 +25,15 @@ class TasksController < ApplicationController
   end
     
   def show
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
     if @task.update_attributes(task_params)
       redirect_to tasks_url
     else
@@ -42,7 +42,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
     if @task.nil?
       redirect_to tasks_url
     elsif @task.destroy
@@ -53,8 +53,8 @@ class TasksController < ApplicationController
   end
 
   def completed
-    @tasks = Task.all.order("completed asc, date asc, created_at desc")
-    @task = Task.find(params[:id])
+    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
+    @task = current_user.tasks.find(params[:id])
     if @task.date
       @date = Date.parse("#{@task.date}")
     else 
@@ -66,11 +66,11 @@ class TasksController < ApplicationController
   end
 
   def timer
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def all
-    @tasks = Task.all.order("completed asc, date asc, created_at desc")
+    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
     @projects = Project.all
   end
 
