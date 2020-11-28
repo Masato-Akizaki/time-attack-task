@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_back_or user
+        redirect_back_or tasks_url
       else 
         message = "アカウントが有効ではありません。"
         message += "メールを確認して登録を完了させてください。"
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to login_url
+    redirect_to root_url
   end
 end

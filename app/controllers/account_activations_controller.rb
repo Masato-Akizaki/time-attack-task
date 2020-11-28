@@ -6,7 +6,7 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       flash[:success] = "登録が完了しました！"
-      redirect_to user
+      redirect_to tasks_url
     else
       flash[:danger] = "リンクが無効です"
       redirect_to signup_url
