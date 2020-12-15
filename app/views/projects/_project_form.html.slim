@@ -1,4 +1,5 @@
 = form_for (project) do |f|
+  = render 'shared/error_messages', object: f.object
   .field
     = f.text_field :name, :placeholder => "プロジェクトを入力してください", class: 'form-control'
   = f.submit button_text, class: "btn btn-primary"
