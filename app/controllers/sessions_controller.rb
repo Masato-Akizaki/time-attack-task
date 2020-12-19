@@ -12,11 +12,11 @@ class SessionsController < ApplicationController
       else 
         message = "アカウントが有効ではありません。"
         message += "メールを確認して登録を完了させてください。"
-        flash[:warning] = message
+        flash[:alert] = message
         redirect_to login_url
       end
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:alert] = 'メールアドレスまたはパスワードが正しくありません。'
       render 'new'
     end
   end

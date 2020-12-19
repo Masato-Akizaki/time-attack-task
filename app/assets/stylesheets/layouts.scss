@@ -35,3 +35,23 @@
     width: 25px;
   }
 }
+
+#error_explanation {
+  margin: 0px 10px 15px 10px;
+
+  li{
+    color: red;
+  }
+}
+
+.notifications {
+  margin: 70px 10px 20px 10px;
+
+  .notice {
+    color: blue;
+  }
+
+  .alert {
+    color: red;
+  }
+}

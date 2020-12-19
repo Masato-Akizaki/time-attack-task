@@ -6,3 +6,6 @@ header
       = yield(:nav_title)
     #navbar_right
       = yield(:right_icon)
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
