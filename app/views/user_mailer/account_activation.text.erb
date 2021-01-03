@@ -1,0 +1,3 @@
+<%= @user.name %>さん
+ご利用していただき、誠にありがとうございます！メールアドレスを認証することにより、パスワードを忘れた際に再設定することができます。以下のボタンをタップしてメールアドレスを認証してください。
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
