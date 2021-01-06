@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only:[:index, :edit, :update, :destroy]
   before_action :correct_user, only:[:edit, :update]
-  before_action :admin_user, only: [:index, :destroy]
+  before_action :admin_user, only: [:destroy]
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
   end
   
   def new
-    @user = User.new
+    @user = User.new(session[:user] || {})
   end
 
   def create
@@ -18,7 +18,9 @@ class UsersController < ApplicationController
       flash[:notice] = "メールを送信しました。メールに記載されたURLをクリックして、登録を完了してください。"
       redirect_to users_url
     else
-      render 'new'
+      session[:user] = @user.attributes.slice(*user_params.keys)
+      flash[:danger] = @user.errors.full_messages
+      redirect_to signup_url
     end
   end
     
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])    
   end
 
   def update
@@ -36,7 +38,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to users_url
     else
-      render "edit"
+      flash[:danger] = @user.errors.full_messages
+      redirect_to edit_user_url
     end
   end
 

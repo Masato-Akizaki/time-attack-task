@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
   
   def new
-    @project = Project.new
+    @project = Project.new(session[:project] || {})
   end
 
   def create
@@ -12,7 +12,9 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to projects_url
     else
-      render 'new'
+      session[:project] = @project.attributes.slice(*project_params.keys)
+      flash[:danger] = @project.errors.full_messages
+      redirect_to new_project_url
     end
   end
 
@@ -31,7 +33,8 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(project_params)
       redirect_to projects_url
     else
-      render "edit"
+      flash[:danger] = @project.errors.full_messages
+      redirect_to edit_project_url
     end
   end
 

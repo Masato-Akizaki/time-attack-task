@@ -20,7 +20,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_url
     else
-      render 'new'
+      flash[:danger] = @task.errors.full_messages
+      redirect_to new_task_url
     end
   end
     
@@ -37,7 +38,8 @@ class TasksController < ApplicationController
     if @task.update_attributes(task_params)
       redirect_to tasks_url
     else
-      render "edit"
+      flash[:danger] = @task.errors.full_messages
+      redirect_to edit_task_url
     end
   end
 
