@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
       redirect_to projects_url
     else
       session[:project] = @project.attributes.slice(*project_params.keys)
-      flash[:danger] = @project.errors.full_messages
+      flash[:alert] = @project.errors.full_messages
       redirect_to new_project_url
     end
   end
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(project_params)
       redirect_to projects_url
     else
-      flash[:danger] = @project.errors.full_messages
+      flash[:alert] = @project.errors.full_messages
       redirect_to edit_project_url
     end
   end

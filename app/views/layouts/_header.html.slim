@@ -8,4 +8,8 @@ header
       = yield(:right_icon)
   .notifications
     - flash.each do |key, value|
-      = content_tag(:div, value, class: key)
+      - if value.is_a?(Array)
+        - value.each do |value|
+          = content_tag(:div, value, class: key)
+      - else
+        = content_tag(:div, value, class: key)

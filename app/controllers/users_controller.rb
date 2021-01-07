@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       redirect_to users_url
     else
       session[:user] = @user.attributes.slice(*user_params.keys)
-      flash[:danger] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
       redirect_to signup_url
     end
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to users_url
     else
-      flash[:danger] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
       redirect_to edit_user_url
     end
   end

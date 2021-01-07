@@ -33,7 +33,7 @@ class PasswordResetsController < ApplicationController
       flash[:notice] = "パスワードをリセットしました"
       redirect_to @user
     else
-      flash[:danger] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
       redirect_to edit_password_reset_url(params[:id], email: params[:email])
     end
   end
