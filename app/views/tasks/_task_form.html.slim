@@ -4,7 +4,7 @@
     = f.text_field :name, :placeholder => "タスクを入力してください", class: 'form-control'
   .field
     = f.label :date
-    = f.date_field :date, class: 'form-control'
+    = f.date_field :date, value: Date.today, class: 'form-control'
   .field
     = f.label :time
     = f.number_field :time, :placeholder => "25", class: 'form-control'
