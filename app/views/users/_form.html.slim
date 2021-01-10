@@ -12,4 +12,8 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation, class: 'form-control'
+  - if current_user.admin?
+    .field
+      = f.label :admin
+      = f.check_box :admin, {class: 'form-control'}, true, false
   = f.submit button_text, class: 'btn'
