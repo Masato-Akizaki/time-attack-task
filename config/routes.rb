@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :tasks do
     collection do
       get 'all'
+      get 'no_project'
     end
     member do
       post 'completed'
