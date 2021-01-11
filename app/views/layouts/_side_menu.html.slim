@@ -7,6 +7,8 @@ input type="checkbox" id="toggle"
         - @projects.each do | p |
           li.menu-item =link_to p.name, project_url(p)
         li.menu-item
+          = link_to "No project", no_project_tasks_url
+        li.menu-item
           = link_to "all tasks", all_tasks_url
         li.menu-item
           = link_to "ログアウト", logout_url, method: :delete
