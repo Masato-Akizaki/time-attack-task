@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
+  def save_return_url
+    session[:return_to] = request.referer
+  end
+
   private
 
     def logged_in_user
