@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  after_action :save_return_url, only: [:new, :edit]
+
   def index
     @projects = current_user.projects.all
   end
@@ -10,7 +12,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(project_params)
     if @project.save
-      redirect_to projects_url
+      redirect_to session.delete(:return_to)
     else
       session[:project] = @project.attributes.slice(*project_params.keys)
       flash[:alert] = @project.errors.full_messages
@@ -31,7 +33,7 @@ class ProjectsController < ApplicationController
   def update
     @project = current_user.projects.find(params[:id])
     if @project.update_attributes(project_params)
-      redirect_to projects_url
+      redirect_to session.delete(:return_to)
     else
       flash[:alert] = @project.errors.full_messages
       redirect_to edit_project_url

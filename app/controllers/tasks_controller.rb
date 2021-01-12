@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :logged_in_user
+  after_action :save_return_url, only: [:new, :edit]
   
   def index
     if params[:date]
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_url
+      redirect_to session.delete(:return_to)
     else
       flash[:alert] = @task.errors.full_messages
       redirect_to new_task_url
@@ -36,7 +37,7 @@ class TasksController < ApplicationController
   def update
     @task = current_user.tasks.find(params[:id])
     if @task.update_attributes(task_params)
-      redirect_to tasks_url
+      redirect_to session.delete(:return_to) 
     else
       flash[:alert] = @task.errors.full_messages
       redirect_to edit_task_url
