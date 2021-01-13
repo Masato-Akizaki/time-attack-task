@@ -1,4 +1,4 @@
-= provide(:left_icon, (link_to image_tag("back_icon"), :back, id: "back_icon"))
+= provide(:left_icon, (link_to image_tag("back_icon"), 'javascript:history.back()', id: "back_icon"))
 = provide(:nav_title, "パスワードの再設定")
 = form_for(:password_reset, url: password_resets_path) do |f|
   .field
