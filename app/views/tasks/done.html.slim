@@ -1,0 +1,20 @@
+= provide(:nav_title, "TimeAttackTask")
+= provide(:right_icon, (link_to "📁", projects_url, id: "projects_url"))
+.side_menu
+	= render 'layouts/side_menu'
+.container
+  .contents
+    .projetcts
+      - @projects.each do|project| 
+        - if @tasks.where(project_id: project.id).present?
+          .project
+            .project-name
+              p = project.name
+            .tasks id="project_#{project.id}"
+              = render @tasks.where(project_id: project.id, completed: true)
+      .no-project
+        .project-name 
+          p No Project
+        .tasks#no_project
+          = render @tasks.where(project_id: nil, completed: true)
+= link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"

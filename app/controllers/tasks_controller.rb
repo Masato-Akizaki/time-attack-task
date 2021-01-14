@@ -77,6 +77,11 @@ class TasksController < ApplicationController
     @projects = Project.all
   end
 
+  def done
+    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
+    @projects = Project.all
+  end
+
   def no_project
     @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
     @projects = Project.all
