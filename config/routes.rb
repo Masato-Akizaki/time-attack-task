@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'all'
       get 'no_project'
+      get 'done'
     end
     member do
       post 'completed'
