@@ -1,5 +1,8 @@
 class TasksController < ApplicationController
   before_action :logged_in_user
+  before_action :set_task, only:[:show, :edit, :update, :destroy, :completed, :timer]
+  before_action :set_tasks, only:[:completed, :all, :done, :no_project]
+  before_action :set_projects, only:[:index, :all, :done, :no_project]
   after_action :save_return_url, only: [:new, :edit]
   
   def index
@@ -9,7 +12,6 @@ class TasksController < ApplicationController
       @date = Date.today
     end
     @tasks = current_user.tasks.where(date: @date).order("completed asc, date asc, created_at desc")
-    @projects = current_user.projects.all
   end
   
   def new
@@ -27,15 +29,12 @@ class TasksController < ApplicationController
   end
     
   def show
-    @task = current_user.tasks.find(params[:id])
   end
 
   def edit
-    @task = current_user.tasks.find(params[:id])
   end
 
   def update
-    @task = current_user.tasks.find(params[:id])
     if @task.update_attributes(task_params)
       redirect_to session.delete(:return_to) 
     else
@@ -45,7 +44,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = current_user.tasks.find(params[:id])
     if @task.nil?
       redirect_to tasks_url
     elsif @task.destroy
@@ -56,8 +54,6 @@ class TasksController < ApplicationController
   end
 
   def completed
-    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
-    @task = current_user.tasks.find(params[:id])
     if @task.date
       @date = Date.parse("#{@task.date}")
     else 
@@ -69,22 +65,15 @@ class TasksController < ApplicationController
   end
 
   def timer
-    @task = current_user.tasks.find(params[:id])
   end
 
   def all
-    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
-    @projects = Project.all
   end
 
   def done
-    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
-    @projects = Project.all
   end
 
   def no_project
-    @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
-    @projects = Project.all
   end
 
   private
@@ -93,5 +82,16 @@ class TasksController < ApplicationController
       params.require(:task).permit(:name, :date, :time, :memo, :completed, :project_id)
     end
 
+    def set_task
+      @task = current_user.tasks.find(params[:id])
+    end
+
+    def set_tasks
+      @tasks = current_user.tasks.order("completed asc, date asc, created_at desc")
+    end
+
+    def set_projects
+      @projects = current_user.projects.all
+    end
 
 end
