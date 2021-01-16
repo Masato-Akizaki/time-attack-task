@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, onle: [:show, :edit, :update, :destroy]
   after_action :save_return_url, only: [:new, :edit]
 
   def index
@@ -21,17 +22,14 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = current_user.projects.find(params[:id])
     @projects = current_user.projects.all
     @tasks = current_user.tasks.where(project_id: @project.id).order("completed asc, date asc, created_at desc")
   end
 
   def edit
-    @project = current_user.projects.find(params[:id])
   end
 
   def update
-    @project = current_user.projects.find(params[:id])
     if @project.update_attributes(project_params)
       redirect_to session.delete(:return_to)
     else
@@ -41,7 +39,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = current_user.projects.find(params[:id])
     if @project.nil?
       redirect_to projects_url
     elsif @project.destroy
@@ -55,6 +52,10 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:name)
+    end
+
+    def set_project
+      @project = current_user.projects.find(params[:id])
     end
 
 end
