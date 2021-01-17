@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_project, onle: [:show, :edit, :update, :destroy]
   after_action :save_return_url, only: [:new, :edit]
 
