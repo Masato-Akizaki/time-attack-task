@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :logged_in_user
-  before_action :set_project, onle: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   after_action :save_return_url, only: [:new, :edit]
 
   def index
