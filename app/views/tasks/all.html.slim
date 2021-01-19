@@ -9,7 +9,7 @@
       = render @projects
       .no-project
         .project-name 
-          p No Project
+          p プロジェクトなし
         .tasks#no_project
           = render "project_tasks", project: nil, tasks: @tasks
 = link_to image_tag('new_task.png'), new_task_path, class: "new-task-icon"
