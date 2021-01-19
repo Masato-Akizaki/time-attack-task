@@ -3,14 +3,14 @@ input type="checkbox" id="toggle"
 	.menu
       ul
         li.menu-item
-          = link_to "today's tasks", tasks_url
+          = link_to "今日のタスク", tasks_url
         - @projects.each do | p |
           li.menu-item =link_to p.name, project_url(p)
         li.menu-item
-          = link_to "No project", no_project_tasks_url
+          = link_to "プロジェクトなし", no_project_tasks_url
         li.menu-item
-          = link_to "all tasks", all_tasks_url
+          = link_to "全てのタスク", all_tasks_url
         li.menu-item
-          = link_to "done tasks", done_tasks_url
+          = link_to "完了したタスク", done_tasks_url
         li.menu-item
           = link_to "ログアウト", logout_url, method: :delete
