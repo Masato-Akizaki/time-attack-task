@@ -63,6 +63,9 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "time-attack-task_#{Rails.env}"
 
+  host = 'time-attack-task.herokuapp.com'
+  config.action_mailer.default_url_options = {host: host}
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
