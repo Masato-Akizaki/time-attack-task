@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :logged_in_user
   before_action :set_task, only:[:show, :edit, :update, :destroy, :completed, :timer]
   before_action :set_tasks, only:[:completed, :all, :done, :no_project]
-  before_action :set_projects, only:[:index, :all, :done, :no_project]
+  before_action :set_projects, only:[:index, :new, :edit, :all, :done, :no_project]
   after_action :save_return_url, only: [:new, :edit]
   
   def index

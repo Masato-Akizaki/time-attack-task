@@ -17,5 +17,5 @@
     = f.label :completed
   .field
     = f.label :project
-    = f.select :project_id, Project.all.map { |p| [p.name, p.id] }, include_blank: true, class: 'form-control'
+    = f.select :project_id, @projects.all.map { |p| [p.name, p.id] }, include_blank: true, class: 'form-control'
   = f.submit button_text, class: 'btn'
