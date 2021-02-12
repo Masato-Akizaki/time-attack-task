@@ -1,7 +1,10 @@
-.user
-  .user-name
-    p = user.name
-  .user-email
-    p = user.email
-  = link_to 'edit', edit_user_path(user)
-  = link_to 'destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+tr
+  td = user.name
+  td = user.email
+  td = user.created_at
+  td = user.updated_at
+  td = user.admin
+  td = user.activated
+  td = link_to 'show', user
+  td = link_to 'edit', edit_user_path(user)
+  td = link_to 'destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
