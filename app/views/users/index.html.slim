@@ -2,5 +2,17 @@
 .container
   .contents
     = will_paginate
-    = render @users
+    table
+      thead
+        tr
+          th ユーザー名
+          th メールアドレス
+          th 作成日
+          th 更新日
+          th admin
+          th activated
+          th colspan="3"
+
+      tbody
+        = render @users
     = will_paginate
